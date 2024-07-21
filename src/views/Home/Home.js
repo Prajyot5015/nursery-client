@@ -47,6 +47,7 @@ function Home() {
             price={price}
             image={image}
             description={description}
+            loadPlants={loadPlants}
           />)
         })
       }

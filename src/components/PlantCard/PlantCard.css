@@ -12,3 +12,12 @@
     width: 150px;
     object-fit: cover;
 }
+.plant-card-action-btn{
+    background-color: black;
+    color: #fff;
+    border-radius: 30px;
+    border: none;
+    padding: 3px 20px;
+    margin: 0 20px;
+    cursor: pointer;
+}
