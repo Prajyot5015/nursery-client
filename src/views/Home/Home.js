@@ -1,16 +1,19 @@
 import './Home.css';
 import React, { useEffect, useState } from 'react'
 import PlantCard from '../../components/PlantCard/PlantCard';
+import axios from 'axios'
 
 function Home() {
 
+  const [plants, setPlants] = useState([])
 
-  const [plants, setPlant] = useState([])
-
-  const loadPlants = () => { }
+  const loadPlants = async ()=> { 
+    const response = await axios.get('http://localhost:5000/plants')
+    setPlants(response.data.data)
+  }
 
   useEffect(() => {
-    loadPlants
+    loadPlants()
   }, [])
 
   return (
