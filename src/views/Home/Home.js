@@ -3,16 +3,18 @@ import React, { useEffect, useState } from 'react'
 import PlantCard from '../../components/PlantCard/PlantCard';
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast';
+import AddImg from "./add.png"
+import { Link } from 'react-router-dom';
 
 function Home() {
 
   const [plants, setPlants] = useState([])
 
-  const loadPlants = async ()=> { 
+  const loadPlants = async () => {
     toast.loading("Loading Plant")
 
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/plants`)
-    
+
     toast.dismiss()
     toast.success("Plant Loaded successfully")
 
@@ -24,7 +26,7 @@ function Home() {
   }, [])
 
   return (
-    <div>
+    <div className='plants-container'>
       <h1>Plants</h1>
 
       {
@@ -49,6 +51,9 @@ function Home() {
         })
       }
       <Toaster />
+      <Link to="/add">
+        <img src={AddImg} alt='Add' className='add' />
+      </Link>
     </div>
   )
 }
