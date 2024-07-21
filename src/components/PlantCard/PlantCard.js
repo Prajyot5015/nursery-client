@@ -2,16 +2,17 @@ import React from 'react'
 import "./PlantCard.css"
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { Link } from 'react-router-dom'
 
 function PlantCard({ _id, name, category, image, price, description, loadPlants }) {
-  
-  const deletePlant = async (plantId)=>{
+
+  const deletePlant = async (plantId) => {
     const response = await axios.delete(`${process.env.REACT_APP_API_URL}/plant/${plantId}`)
 
     toast.success(response.data.message)
     loadPlants()
   }
-  
+
   return (
     <div className='plant-card'>
       <h1 className='plant-title'>{name}</h1>
@@ -20,7 +21,13 @@ function PlantCard({ _id, name, category, image, price, description, loadPlants 
       <img src={image} alt='img' className='plant-card-img' />
 
       <div>
-        <button type='button' className='plant-card-action-btn'>Edit</button>
+        <Link to={`/update/${_id}`}
+          type='button'
+          className='plant-card-action-btn'
+        >
+          Edit
+        </Link>
+
         <button
           type='button'
           className='plant-card-action-btn'

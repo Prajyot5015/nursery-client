@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         element : <AddPlant />
     },
     {
-        path : "/update",
+        path : "/update/:id",
         element : <UpdatePlant />
     },
     {
