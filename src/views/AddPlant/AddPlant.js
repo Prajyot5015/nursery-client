@@ -67,6 +67,8 @@ function AddPlant() {
                     className='plant-input'
                 />
 
+                <img src={image} alt='img' className='img-preview' />
+
                 <input
                     type='text'
                     placeholder='Enter Plant image Url'
@@ -85,6 +87,9 @@ function AddPlant() {
 
                 <button type='button' onClick={addPlant}>Add Plant</button>
             </form>
+
+
+
             <Toaster />
         </div>
     )
