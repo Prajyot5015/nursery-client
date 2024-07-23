@@ -14,28 +14,38 @@ function PlantCard({ _id, name, category, image, price, description, loadPlants 
   }
 
   return (
-    <div className='plant-card'>
-      <h1 className='plant-title'>{name}</h1>
-      <p className='plant-price'>Price : {price} </p>
+    <div className="container">
+      <div className='plant-card'>
+        <img src={image} className='plant-image' />
+        <div className='plant-details'>
+          <div className='plant-name'>{name}</div>
+          <div className='plant-category'>{category}</div>
+          <p className='plant-price'>Price:{price}</p>
 
-      <img src={image} alt='img' className='plant-card-img' />
+          <div className='plant-description'>{description}</div>
+          <div className="button-container">
 
-      <div>
-        <Link to={`/update/${_id}`}
-          type='button'
-          className='plant-card-action-btn'
-        >
-          Edit
-        </Link>
 
-        <button
-          type='button'
-          className='plant-card-action-btn'
-          onClick={() => {
-            deletePlant(_id)
-          }}>
-          Delete
-        </button>
+            <Link
+              className='button update-button'
+              to={`/update/${_id}`}>
+              Edit
+            </Link>
+
+            <button
+              type='button'
+              className='button delete-button'
+              onClick={() => {
+                deletePlant(_id)
+              }}>
+              Delete</button>
+
+          </div>
+
+
+
+        </div>
+
       </div>
     </div>
   )

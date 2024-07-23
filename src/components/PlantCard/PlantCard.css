@@ -1,23 +1,64 @@
-.plant-card{
-    border: 1px solid black;
-    padding: 5px 20px;
-    border-radius: 10px;
-    margin: 20px ;
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
 }
-.plant-title{
-    font-size: 20px;
+.container {
+    max-width: 800px;
+    margin: auto;
 }
-.plant-card-img{
-    height: 100px;
-    width: 150px;
-    object-fit: cover;
+.plant-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
-.plant-card-action-btn{
-    background-color: black;
+.plant-image {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+.plant-details {
+    display: inline-block;
+    vertical-align: middle;
+}
+.plant-name {
+    font-weight: bold;
+}
+.plant-category {
+    color: #666;
+}
+.plant-price {
+    font-size: 0.9em;
+    color: #28a745;
+}
+.plant-description {
+    margin-top: 5px;
+    color: #333;
+}
+.button-container {
+    margin-top: 20px;
+}
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
     color: #fff;
-    border-radius: 30px;
     border: none;
-    padding: 3px 20px;
-    margin: 0 20px;
+    border-radius: 5px;
     cursor: pointer;
+    margin-right: 10px;
+    text-decoration: none;
+}
+.button:hover {
+    background-color: #0056b3;
+}
+.delete-button {
+    background-color: #dc3545;
+}
+.delete-button:hover {
+    background-color: #c82333;
 }
