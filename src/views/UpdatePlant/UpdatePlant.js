@@ -3,6 +3,7 @@ import "./UpdatePlant.css"
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
+import { Link } from 'react-router-dom'
 
 
 function UpdatePlant() {
@@ -15,15 +16,15 @@ function UpdatePlant() {
     const [description, setDescription] = useState("")
 
     const updatePlant = async () => {
-        const response = await axios.put(`${process.env.REACT_APP_API_URL}/plant/${id}`,{
-            name : name,
-            price : price,
-            category : category,
-            image : image,
-            description : description  
+        const response = await axios.put(`${process.env.REACT_APP_API_URL}/plant/${id}`, {
+            name: name,
+            price: price,
+            category: category,
+            image: image,
+            description: description
         })
 
-        toast.success(response.data.message)        
+        toast.success(response.data.message)
         setName("")
         setCategory("")
         setPrice("")
@@ -42,7 +43,7 @@ function UpdatePlant() {
 
         const plantData = response.data.data
 
-        const { 
+        const {
             name,
             category,
             price,
@@ -63,55 +64,76 @@ function UpdatePlant() {
 
     return (
         <div>
-            <h1>Update Plant </h1>
-
             <form>
-                <input
-                    type='text'
-                    placeholder='Enter Plant Name'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className='plant-input'
-                />
+                <div className="form-heading">
+                    <h1>Update Plant</h1>
+                </div>
 
-                <input
-                    type='number'
-                    placeholder='Enter Plant Price'
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                    className='plant-input'
-                />
+                <div className="form-group">
+                    <label for="name">Name:</label>
+                    <input
+                        type='text'
+                        placeholder='Enter Plant Name'
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className='plant-input'
+                    />
+                </div>
 
-                <input
-                    type='text'
-                    placeholder='Enter Plant Category'
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                    className='plant-input'
-                />
+                <div className="form-group">
+                    <label for="category">Category:</label>
+                    <input
+                        type='text'
+                        placeholder='Enter Plant Category'
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                        className='plant-input'
+                    />
+                </div>
 
-                <img src={image} alt='img' className='img-preview' />
 
-                <input
-                    type='text'
-                    placeholder='Enter Plant image Url'
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}
-                    className='plant-input'
-                />
+                <div className="form-group">
+                    <label for="description">Price:</label>
+                    <input
+                        type='number'
+                        placeholder='Enter Plant Price'
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)}
+                        className='plant-input'
+                    />
+                </div>
 
-                <input
-                    type='text'
-                    placeholder='Enter Plant Description'
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    className='plant-input'
-                />
+                <div className="form-group">
+                    <label for="image">Image Preview</label>
+                    <img src={image} className='img-preview' />
+                </div>
 
-                <button type='button' onClick={updatePlant}>Update Plant</button>
+                <div className="form-group">
+                    <label for="image">Image:</label>
+                    <input
+                        type='text'
+                        placeholder='Enter Plant Image URL'
+                        value={image}
+                        onChange={(e) => setImage(e.target.value)}
+                        className='plant-input'
+                    />
+                </div>
+                <div className="form-group">
+                    <label for="description">Description:</label>
+                    <input
+                        type='text'
+                        placeholder='Enter Plant Description'
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        className='plant-input'
+                    />
+                </div>
+
+                <button type="button" onClick={updatePlant}>Update Plant</button>
+                <Link to="/" className='show-all-button'>Show All Plants</Link>
             </form>
 
-        <Toaster />
+            <Toaster />
         </div>
     )
 }
